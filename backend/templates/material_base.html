@@ -1,0 +1,78 @@
+<!DOCTYPE html>{% load cms_tags menu_tags sekizai_tags static i18n %}{% spaceless %}
+    <html lang="{{ LANGUAGE_CODE }}" itemscope itemtype="http://schema.org/WebPage">
+        <head>
+            {% include "includes/head.html" %}
+            {% block extra_style %}{% endblock extra_style %}
+            <meta charset="utf-8"/>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+            {% block meta %}
+                <meta name="description" content="{% page_attribute meta_description %}"/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:title" content="{% page_attribute "page_title" %}"/>
+                <meta property="og:description" content="{% page_attribute meta_description %}"/>
+            {% endblock meta %}
+            {% block canonical_url %}
+                <link rel="canonical" href="{{ request.build_absolute_uri }}"/>
+                <meta property="og:url" content="{{ request.build_absolute_uri }}"/>
+            {% endblock canonical_url %}
+            {% block fb_meta %}{% endblock fb_meta %}
+            <title>{% block title %}{% page_attribute "page_title" %}{% endblock %}</title>
+            {% block base_css %}{% endblock %}
+{% endspaceless %}{% render_block 'css' %}{% spaceless %}
+            {% block page_head %}{% endblock %}
+        </head>
+        <body {% block body_attrs %}{% endblock %} class="{% block body %}{% endblock body %}">
+{% endspaceless %}{% cms_toolbar %}{% spaceless %}
+            {% block navigation %}
+                {% include "includes/navigation.html" %}
+            {% endblock navigation %}
+
+
+
+
+
+            <header class="bg-gradient-dark">
+                <div class="page-header min-vh-75" style="background-image: url('{% static "assets/img/bg9.jpg" %}');">
+                  <span class="mask bg-gradient-dark opacity-6"></span>
+                  <div class="container">
+                    <div class="row justify-content-center">
+                      <div class="col-lg-8 text-center mx-auto my-auto">
+                        <h1 class="text-white">Technology-Lab</h1>
+                        <p class="lead mb-4 text-white opacity-8">A safe place to create, break, fix, and learn with a community of positive enthusiasts</p>
+                        <button type="submit" class="btn bg-white text-dark">Create Account</button>
+                        <h6 class="text-white mb-2 mt-5">Find us on</h6>
+                        <div class="d-flex justify-content-center">
+                          <a href="javascript:;"><i class="fab fa-facebook text-lg text-white me-4"></i></a>
+                          <a href="javascript:;"><i class="fab fa-instagram text-lg text-white me-4"></i></a>
+                          <a href="javascript:;"><i class="fab fa-twitter text-lg text-white me-4"></i></a>
+                          <a href="javascript:;"><i class="fab fa-google-plus text-lg text-white"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </header>
+              <!-- -------- END HEADER 7 w/ text and video ------- -->
+            
+
+
+
+
+            <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+            {% block content %}
+                {% placeholder "Content" %}
+            {% endblock content %}
+            </div>
+
+            {% block footer %}
+                {% include "includes/footer.html" %}
+            {% endblock footer %}
+            {% block base_js %}{% endblock %}
+            {% endspaceless %}{% render_block 'js' %}{% spaceless %}
+            {% include "includes/scripts.html" %}
+            {% block extra_js %}{% endblock extra_js %}
+            {% block end_js %}{% endblock %}
+            {% block bottom_css %}{% endblock %}
+        </body>
+    </html>{% endspaceless %}

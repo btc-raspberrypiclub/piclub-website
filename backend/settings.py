@@ -87,6 +87,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -101,8 +103,6 @@ MIDDLEWARE = [
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
-
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -147,6 +147,9 @@ CMS_TEMPLATES = [
     ('minimal.html', 'Minimal template'),
 
     ('whitenoise-static-files-demo.html', 'Static File Demo'),
+
+    ('material_base.html', 'Material Base'),
+    ('material.html', 'Material'),
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
