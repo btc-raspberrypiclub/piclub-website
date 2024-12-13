@@ -81,6 +81,9 @@ INSTALLED_APPS = [
 
     # Theme
     'theme_material_kit',
+
+    # Django Debug Toolbar
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -98,6 +101,8 @@ MIDDLEWARE = [
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
+
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -231,3 +236,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 CMS_CONFIRM_VERSION4 = True
 DJANGOCMS_VERSIONING_ALLOW_DELETING_VERSIONS = True
+
+INTERNAL_IPS = [
+    '127.0.0.1',  # For local development
+    'host.docker.internal', # For Docker on Linux
+    '0.0.0.0',  # For Docker on Windows and macOS
+    'localhost', # For Docker on Windows and macOS
+    ]
