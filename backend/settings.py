@@ -78,6 +78,9 @@ INSTALLED_APPS = [
     'djangocms_frontend.contrib.image',
     'djangocms_frontend.contrib.tabs',
     'djangocms_frontend.contrib.utilities',
+
+    # Theme
+    'theme_material_kit',
 ]
 
 MIDDLEWARE = [
@@ -206,13 +209,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_collected')  # this is were th
 DEFAULT_STORAGE_DSN = os.environ.get('DEFAULT_STORAGE_DSN', '/data/media/')
 DefaultStorageClass = dsn_configured_storage_class('DEFAULT_STORAGE_DSN')
 
+WHITENOISE_MANIFEST_STRICT = False
 STORAGES = {
     'default': {
         'BACKEND': 'backend.settings.DefaultStorageClass',
     },
     'staticfiles': {
-        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
-        # 'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage',
+        #'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+        'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage',
     },
 }
 
