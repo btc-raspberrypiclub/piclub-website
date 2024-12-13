@@ -5,7 +5,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path("", include('theme_material_kit.urls')),
+    ]
 
 if settings.DEBUG:
     urlpatterns.extend(static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
@@ -13,4 +14,4 @@ if settings.DEBUG:
 urlpatterns.append(path('', include('cms.urls')))
 
 # the new django admin sidebar is bad UX in django CMS custom admin views.
-admin.site.enable_nav_sidebar = False
+admin.site.enable_nav_sidebar = True
