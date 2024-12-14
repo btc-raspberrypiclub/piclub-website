@@ -27,44 +27,32 @@
             {% block navigation %}
                 {% include "includes/navigation.html" %}
             {% endblock navigation %}
-
-
-
-
-
+{% endspaceless %}
             <header class="bg-gradient-dark">
-                <div class="page-header min-vh-75" style="background-image: url('{% static "assets/img/bg9.jpg" %}');">
+                <div class="page-header min-vh-75" style="background-image: url('{% static "matrix_penguin_header2.png" %}');">
                   <span class="mask bg-gradient-dark opacity-6"></span>
                   <div class="container">
                     <div class="row justify-content-center">
                       <div class="col-lg-8 text-center mx-auto my-auto">
-                        <h1 class="text-white">Technology-Lab</h1>
-                        <p class="lead mb-4 text-white opacity-8">A safe place to create, break, fix, and learn with a community of positive enthusiasts</p>
-                        <button type="submit" class="btn bg-white text-dark">Create Account</button>
-                        <h6 class="text-white mb-2 mt-5">Find us on</h6>
-                        <div class="d-flex justify-content-center">
-                          <a href="javascript:;"><i class="fab fa-facebook text-lg text-white me-4"></i></a>
-                          <a href="javascript:;"><i class="fab fa-instagram text-lg text-white me-4"></i></a>
-                          <a href="javascript:;"><i class="fab fa-twitter text-lg text-white me-4"></i></a>
-                          <a href="javascript:;"><i class="fab fa-google-plus text-lg text-white"></i></a>
-                        </div>
+                        {% block header %}
+                        {% placeholder "Header" or %}
+                        <h1 class="text-white">{% page_attribute "title" %}</h1>
+                        <p class="lead mb-4 text-white opacity-8">{% page_attribute "meta_description" %}</p>
+                        {% endplaceholder %}
+                        {% endblock header %}
                       </div>
                     </div>
                   </div>
                 </div>
-              </header>
-              <!-- -------- END HEADER 7 w/ text and video ------- -->
-            
-
-
-
+            </header>
+            <!-- -------- END HEADER 7 w/ text and video ------- -->
 
             <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
             {% block content %}
                 {% placeholder "Content" %}
             {% endblock content %}
             </div>
-
+{% spaceless %}
             {% block footer %}
                 {% include "includes/footer.html" %}
             {% endblock footer %}
@@ -72,7 +60,8 @@
             {% endspaceless %}{% render_block 'js' %}{% spaceless %}
             {% include "includes/scripts.html" %}
             {% block extra_js %}{% endblock extra_js %}
-            {% block end_js %}{% endblock %}
-            {% block bottom_css %}{% endblock %}
+            {% block end_js %}{% endblock end_js %}
+            {% block bottom_css %}{% endblock bottom_css %}
+{% endspaceless %}
         </body>
-    </html>{% endspaceless %}
+    </html>

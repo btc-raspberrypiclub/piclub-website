@@ -8,5 +8,6 @@ Here are some links to docs and sources of the tools, modules, etc that we used 
 
 -  https://user-guide.django-cms.org/en/latest/
 -  https://github.com/app-generator/django-material-kit
+  -  https://github.com/app-generator/django-theme-material-kit
 -  https://docs.django-cms.org/en/latest/introduction/01-install.html
-  -  https://docs.django-cms.org/en/latest/introduction/02-templates_placeholders.html
+  -  https://docs.django-cms.org/en/latest/index.html
