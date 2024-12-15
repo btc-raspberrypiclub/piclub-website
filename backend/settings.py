@@ -78,9 +78,17 @@ INSTALLED_APPS = [
     'djangocms_frontend.contrib.image',
     'djangocms_frontend.contrib.tabs',
     'djangocms_frontend.contrib.utilities',
+
+    # Theme
+    'theme_material_kit',
+
+    # Django Debug Toolbar
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -139,6 +147,9 @@ CMS_TEMPLATES = [
     ('minimal.html', 'Minimal template'),
 
     ('whitenoise-static-files-demo.html', 'Static File Demo'),
+
+    ('material_base.html', 'Material Base'),
+    ('material.html', 'Material'),
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
@@ -206,13 +217,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_collected')  # this is were th
 DEFAULT_STORAGE_DSN = os.environ.get('DEFAULT_STORAGE_DSN', '/data/media/')
 DefaultStorageClass = dsn_configured_storage_class('DEFAULT_STORAGE_DSN')
 
+WHITENOISE_MANIFEST_STRICT = False
 STORAGES = {
     'default': {
         'BACKEND': 'backend.settings.DefaultStorageClass',
     },
     'staticfiles': {
-        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
-        # 'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage',
+        #'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+        'BACKEND': 'whitenoise.storage.CompressedStaticFilesStorage',
     },
 }
 
@@ -227,3 +239,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 CMS_CONFIRM_VERSION4 = True
 DJANGOCMS_VERSIONING_ALLOW_DELETING_VERSIONS = True
+
+INTERNAL_IPS = [
+    '127.0.0.1',  # For local development
+    'host.docker.internal', # For Docker on Linux
+    '0.0.0.0',  # For Docker on Windows and macOS
+    'localhost', # For Docker on Windows and macOS
+    ]
