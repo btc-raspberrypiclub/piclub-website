@@ -11,3 +11,5 @@ Here are some links to docs and sources of the tools, modules, etc that we used 
   -  https://github.com/app-generator/django-theme-material-kit
 -  https://docs.django-cms.org/en/latest/introduction/01-install.html
   -  https://docs.django-cms.org/en/latest/index.html
+-  https://django-organizations.readthedocs.io/en/latest/index.html
+-  https://django-userena-ce.github.io/django-userena-ce/installation.html
