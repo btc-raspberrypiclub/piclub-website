@@ -246,3 +246,7 @@ INTERNAL_IPS = [
     '0.0.0.0',  # For Docker on Windows and macOS
     'localhost', # For Docker on Windows and macOS
     ]
+
+DEBUG_TOOLBAR_CONFIG = {
+    'SHOW_TOOLBAR_CALLBACK': lambda _request: DEBUG
+}
