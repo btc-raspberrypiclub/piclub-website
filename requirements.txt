@@ -175,4 +175,7 @@ str2bool==1.1
 # UI
 django-theme-material-kit==1.0.25
 
+# Profiles
+django-userena-ce==7.0.3
+
 django-debug-toolbar

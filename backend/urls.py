@@ -6,7 +6,8 @@ from debug_toolbar.toolbar import debug_toolbar_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("material/", include('theme_material_kit.urls')),
+    path('material/', include('theme_material_kit.urls')),
+    path('accounts/', include('userena.urls')),
     ] + debug_toolbar_urls()
 
 if settings.DEBUG:
