@@ -274,3 +274,6 @@ AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 USERENA_SIGNIN_REDIRECT_URL = '/'
 LOGIN_URL = '/accounts/signin/'
 LOGOUT_URL = '/accounts/signout/'
+DEBUG_TOOLBAR_CONFIG = {
+    'SHOW_TOOLBAR_CALLBACK': lambda _request: DEBUG
+}
