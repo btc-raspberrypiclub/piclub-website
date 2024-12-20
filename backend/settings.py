@@ -87,7 +87,6 @@ INSTALLED_APPS = [
 
     # User accounts/profiles
     'accounts',
-    'userena', 
     'guardian',
 
 ]
@@ -254,26 +253,22 @@ INTERNAL_IPS = [
     ]
 
 AUTHENTICATION_BACKENDS = (
-    'userena.backends.UserenaAuthenticationBackend',
     'guardian.backends.ObjectPermissionBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
-EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'yourgmailaccount@gmail.com'
-EMAIL_HOST_PASSWORD = 'yourgmailpassword'
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-SERVER_EMAIL = EMAIL_HOST_USER
+#EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+#EMAIL_USE_TLS = True
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_PORT = 587
+#EMAIL_HOST_USER = 'yourgmailaccount@gmail.com'
+#EMAIL_HOST_PASSWORD = 'yourgmailpassword'
+#DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+#SERVER_EMAIL = EMAIL_HOST_USER
 
-ANONYMOUS_USER_NAME = 'AnonymousUser'
+#AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
-AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
-USERENA_SIGNIN_REDIRECT_URL = '/'
-LOGIN_URL = '/accounts/signin/'
-LOGOUT_URL = '/accounts/signout/'
+# Django Debug Toolbar fix for use inside a container
 DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TOOLBAR_CALLBACK': lambda _request: DEBUG
 }
