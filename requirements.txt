@@ -176,4 +176,6 @@ str2bool==1.1
 django-theme-material-kit==1.0.25
 
 
+guardian==0.2.2
+
 django-debug-toolbar

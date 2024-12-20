@@ -84,6 +84,10 @@ INSTALLED_APPS = [
 
     # Django Debug Toolbar
     'debug_toolbar',
+
+    # User accounts/profiles
+    'guardian',
+
 ]
 
 MIDDLEWARE = [
@@ -247,6 +251,23 @@ INTERNAL_IPS = [
     'localhost', # For Docker on Windows and macOS
     ]
 
+AUTHENTICATION_BACKENDS = (
+    'guardian.backends.ObjectPermissionBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+#EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+#EMAIL_USE_TLS = True
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_PORT = 587
+#EMAIL_HOST_USER = 'yourgmailaccount@gmail.com'
+#EMAIL_HOST_PASSWORD = 'yourgmailpassword'
+#DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+#SERVER_EMAIL = EMAIL_HOST_USER
+
+#AUTH_PROFILE_MODULE = 'accounts.UserProfile'
+
+
+# Django Debug Toolbar fix for use inside a container
 DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TOOLBAR_CALLBACK': lambda _request: DEBUG
 }
