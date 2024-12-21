@@ -251,7 +251,6 @@ INTERNAL_IPS = [
     ]
 
 AUTHENTICATION_BACKENDS = (
-    'guardian.backends.ObjectPermissionBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 #EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
