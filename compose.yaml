@@ -1,5 +1,6 @@
 services:
   web:
+    image: ghcr.io/btc-raspberrypiclub/piclub-website:latest
     # the application's web service (container) will use an image based on our Dockerfile
     build: .
     # map the internal port 80 to port 8000 on the host
