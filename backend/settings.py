@@ -86,7 +86,6 @@ INSTALLED_APPS = [
     'debug_toolbar',
 
     # User accounts/profiles
-    'guardian',
 
 ]
 
